@@ -1,0 +1,113 @@
+# 🚀 SpaceX Falcon 9 First-Stage Landing Prediction
+
+## IBM Applied Data Science Capstone Project
+
+This project analyzes historical SpaceX Falcon 9 launch data to understand
+launch patterns and predict whether the Falcon 9 first stage will successfully
+land.
+
+The project follows an end-to-end Data Science workflow:
+
+**Data Collection → Data Wrangling → EDA → SQL Analysis → Visualization →
+Interactive Analytics → Machine Learning → Model Evaluation**
+
+---
+
+## 📌 Project Objective
+
+The main objective is to analyze Falcon 9 launch data and build a machine
+learning classification model that predicts first-stage landing success.
+
+The project investigates:
+
+- Launch-site activity
+- Payload characteristics
+- Orbit types
+- Booster reuse
+- Landing outcomes
+- Launch trends over time
+- Geographic distribution of launch sites
+- Relationships between payload and landing success
+- Predictive factors for successful landing
+
+---
+
+## 📊 Dataset
+
+The project uses historical SpaceX launch information collected through:
+
+### 1. SpaceX REST API
+
+Primary API:
+
+`https://api.spacexdata.com/v4/`
+
+The API data includes information about:
+
+- Rockets
+- Payloads
+- Launchpads
+- Cores
+- Flight numbers
+- Launch dates
+- Booster versions
+- Payload mass
+- Orbit
+- Landing outcomes
+- Reuse information
+- Geographic coordinates
+
+The analysis is restricted to launches occurring on or before:
+
+**November 13, 2020**
+
+---
+
+### 2. Wikipedia Web Scraping
+
+Launch information is also collected from:
+
+**List of Falcon 9 and Falcon Heavy launches**
+
+The web-scraping workflow uses:
+
+- Requests
+- BeautifulSoup
+- Pandas HTML table extraction
+
+The extracted information includes:
+
+- Flight number
+- Launch date
+- Booster version
+- Launch site
+- Payload
+- Payload mass
+- Orbit
+- Customer
+- Launch outcome
+- Booster landing
+
+---
+
+## 🧹 Data Wrangling
+
+The data preparation process includes:
+
+1. Selecting relevant API fields.
+2. Removing launches containing multiple cores.
+3. Removing launches containing multiple payloads.
+4. Extracting individual core and payload information.
+5. Converting UTC timestamps into dates.
+6. Restricting the analysis to November 13, 2020.
+7. Filtering the dataset to Falcon 9 launches.
+8. Handling missing values.
+9. Creating the binary landing-success target.
+10. Preparing categorical variables using one-hot encoding.
+
+### Target Variable
+
+The machine-learning target is:
+
+```text
+Class
